@@ -60,6 +60,10 @@ public class CountDataAdapter extends RecyclerView.Adapter<CountDataAdapter.MyHo
         this.holders = new ArrayList<>(list.size());
         initHolders();
     }
+    
+    public void setOnFocusListener(OnFocusListener onFocusListener) {
+        this.onFocusListener = onFocusListener;
+    }
 
     public void setList(List<String> list) {
         initHolders();
