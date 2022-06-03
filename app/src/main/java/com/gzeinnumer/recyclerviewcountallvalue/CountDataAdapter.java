@@ -15,7 +15,7 @@ import com.gzeinnumer.recyclerviewcountallvalue.databinding.ItemRvBinding;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CountDataAdapter extends RecyclerView.Adapter<CountDataAdapter.MyHolder> implements Filterable {
+public class CountDataAdapter extends RecyclerView.Adapter<CountDataAdapter.MyHolder> {
     private final List<ItemRvBinding> holders;
     private final Context context;
     private List<String> list;
@@ -33,32 +33,6 @@ public class CountDataAdapter extends RecyclerView.Adapter<CountDataAdapter.MyHo
     public void setOnFocusListener(OnFocusListener onFocusListener) {
         this.onFocusListener = onFocusListener;
     }
-
-    private final Filter exampleFilter = new Filter() {
-        @Override
-        protected FilterResults performFiltering(CharSequence constraint) {
-            List<String> fildteredList = new ArrayList<>();
-            if (constraint != null || constraint.length() != 0) {
-                String filterPattern = constraint.toString().toLowerCase().trim();
-
-                for (String item : listFilter) {
-                    if (item.toLowerCase().contains(filterPattern)) {
-                        fildteredList.add(item);
-                    }
-                }
-            }
-            FilterResults results = new FilterResults();
-            results.values = fildteredList;
-            return results;
-        }
-
-        @Override
-        protected void publishResults(CharSequence constraint, FilterResults results) {
-            list.clear();
-            list.addAll((List) results.values);
-            notifyDataSetChanged();
-        }
-    };
 
     public void setList(List<String> list) {
         this.list = new ArrayList<>(list);
@@ -92,11 +66,6 @@ public class CountDataAdapter extends RecyclerView.Adapter<CountDataAdapter.MyHo
     @Override
     public int getItemCount() {
         return list.size();
-    }
-
-    @Override
-    public Filter getFilter() {
-        return exampleFilter;
     }
 
     public interface OnFocusListener {

@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
 ```
 #### [CountDataAdapter.java](app/src/main/java/com/gzeinnumer/recyclerviewcountallvalue/CountDataAdapter.java)
 ```java
-public class CountDataAdapter extends RecyclerView.Adapter<CountDataAdapter.MyHolder> implements Filterable {
+public class CountDataAdapter extends RecyclerView.Adapter<CountDataAdapter.MyHolder> {
     private final List<ItemRvBinding> holders;
 
     public CountDataAdapter(Context context, List<String> list) {
