@@ -45,11 +45,13 @@ public class MainActivity extends AppCompatActivity {
         int[] countAll = new int[adapter.getHolders().size()];
         for (int i = 0; i < adapter.getHolders().size(); i++) {
             ItemRvBinding bind = adapter.getHolders().get(i);
-            String s = bind.edData.getText().toString();
-            if (s.length() > 0) {
-                countAll[i] = Integer.parseInt(s);
-            } else {
-                countAll[i] = 0;
+            if (bind!=null){
+                String s = bind.edData.getText().toString();
+                if (s.length() > 0) {
+                    countAll[i] = Integer.parseInt(s);
+                } else {
+                    countAll[i] = 0;
+                }
             }
         }
 

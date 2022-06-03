@@ -1,6 +1,12 @@
 # RecyclerviewCountAllValue
 
-#### [MainActivity.java](https://github.com/gzeinnumer/RecyclerviewCountAllValue/blob/master/app/src/main/java/com/gzeinnumer/recyclerviewcountallvalue/MainActivity.java)
+// https://github.com/gzeinnumer/RecyclerviewCountAllValue/blob/master/
+
+<pre>
+<img src="preview/example1.jpeg" width="300">
+</pre>
+
+#### [MainActivity.java](app/src/main/java/com/gzeinnumer/recyclerviewcountallvalue/MainActivity.java)
 ```java
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
@@ -36,11 +42,13 @@ public class MainActivity extends AppCompatActivity {
         int[] countAll = new int[adapter.getHolders().size()];
         for (int i = 0; i < adapter.getHolders().size(); i++) {
             ItemRvBinding bind = adapter.getHolders().get(i);
-            String s = bind.edData.getText().toString();
-            if (s.length() > 0) {
-                countAll[i] = Integer.parseInt(s);
-            } else {
-                countAll[i] = 0;
+            if (bind!=null){
+                String s = bind.edData.getText().toString();
+                if (s.length() > 0) {
+                    countAll[i] = Integer.parseInt(s);
+                } else {
+                    countAll[i] = 0;
+                }
             }
         }
 
@@ -51,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
-#### [CountDataAdapter.java](https://github.com/gzeinnumer/RecyclerviewCountAllValue/blob/master/app/src/main/java/com/gzeinnumer/recyclerviewcountallvalue/CountDataAdapter.java)
+#### [CountDataAdapter.java](app/src/main/java/com/gzeinnumer/recyclerviewcountallvalue/CountDataAdapter.java)
 ```java
 public class CountDataAdapter extends RecyclerView.Adapter<CountDataAdapter.MyHolder> implements Filterable {
     private final List<ItemRvBinding> holders;
@@ -83,9 +91,9 @@ public class CountDataAdapter extends RecyclerView.Adapter<CountDataAdapter.MyHo
 }
 ```
 
-#### [item_rv.xml](https://github.com/gzeinnumer/RecyclerviewCountAllValue/blob/master/app/src/main/res/layout/item_rv.xml)
+#### [item_rv.xml](app/src/main/res/layout/item_rv.xml)
 
-#### [activity_main.xml](https://github.com/gzeinnumer/RecyclerviewCountAllValue/blob/master/app/src/main/res/layout/activity_main.xml)
+#### [activity_main.xml](app/src/main/res/layout/activity_main.xml)
 
 ---
 
